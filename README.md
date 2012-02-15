@@ -3,11 +3,9 @@
 * Converts each note based on [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax.
 
 ## Setup & Usage
-1. Modify `notes_directory` and `output_directory` to reflect your desired values.
-2. Determine whether or not you would like to `hide_private` files and update the value appropriately.
-3. Run **notational-notes.rb**.
-4. `output_directory` should now contain HTML-based copies of your NV/similar notes.
-
+1. Determine whether or not you would like to `hide_private` files and update the setting appropriately.
+2. Run **notational-notes.rb input_directory output_directory**.
+3. `output_directory` should now contain HTML-based copies of your NV/similar notes.
 
 ## License
 Copyright (c) 2012 [Kevin Richardson](http://kevin.magically.us)

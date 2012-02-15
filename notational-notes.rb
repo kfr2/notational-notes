@@ -10,10 +10,6 @@
 
 require 'rdiscount'
 
-# The location of your NV files.
-note_directory   = "/Users/kevin/Dropbox/notational/"
-# Where you would like the output files placed.
-output_directory = "/Users/kevin/Developer/web/lotusgarden/notes/"
 # -- [ Optional ] --
 # Ignore files beginning with "private".
 hide_private = true
@@ -21,6 +17,15 @@ hide_private = true
 user_name = "Kevin Richardson"
 # The URI of your website.
 web_uri = "http://kevin.magically.us"
+
+if ARGV.count < 2
+    puts "Usage: #{__FILE__} INPUT_DIR OUTPUT_DIR"
+    Kernel.exit
+end
+
+note_directory   = ARGV[0]
+output_directory = ARGV[1]
+
 
 hide_private = false if hide_private.nil?
 user_name = "Notational Note User" if user_name.nil?
