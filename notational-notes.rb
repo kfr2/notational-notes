@@ -50,7 +50,7 @@ Dir["*.txt"].each do |file|
     # Truncate the ".txt" off the filename.
     file = file.slice(0..-5)
 
-    output = "<html><head><title>#{file}</title></head><body><a href='index.htm'>Notes Home</a><hr>" + markdown.to_html + "<footer><hr><em>Last modified: #{modified.to_s}</em></footer></body></html>"
+    output = "<html><head><title>#{file}</title></head><body><a href='index.htm'>Notes Home</a><hr>#{markdown.to_html}<footer><hr><em>Last modified: #{modified.to_s}</em></footer></body></html>"
 
     # Write the note to the output_directory.
     File.new(output_directory + file + ".htm", "w").puts output
