@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # Kevin Richardson <kevin@magically.us>
-# https://github.com/kfredrichardson/notational-notes
+# https://github.com/kfr2/notational-notes
 #
 # Converts a directory of notes in text format (like those produced by Notational Velocity/nvAlt)
 # into a notes webpage in the style of (url).  Currently supports Markdown formatting syntax.
@@ -29,7 +29,7 @@ output_directory = ARGV[1]
 
 hide_private = false if hide_private.nil?
 user_name = "Notational Note User" if user_name.nil?
-web_uri = "https://github.com/kfredrichardson/notational-notes" if web_uri.nil?
+web_uri = "https://github.com/kfr2/notational-notes" if web_uri.nil?
 
 Dir.chdir(note_directory)
 notes_index = File.open(output_directory + "index.htm", "w")
@@ -63,7 +63,7 @@ Dir["*.txt"].each do |file|
     notes_index.puts "<li><a href='#{file}.htm' title='#{file}'>#{file}</a></li>"
 end
 
-notes_index.puts "</ul><footer><hr><em>Last modified: #{newest_time.to_s}</em><p>Powered by <a href='https://github.com/kfredrichardson/notational-notes' title='Notational Notes'>Notational Notes</a></p></footer></body></html>"
+notes_index.puts "</ul><footer><hr><em>Last modified: #{newest_time.to_s}</em><p>Powered by <a href='https://github.com/kfr2/notational-notes' title='Notational Notes'>Notational Notes</a></p></footer></body></html>"
 notes_index.close
 
 puts "Done converting notes to HTML."
