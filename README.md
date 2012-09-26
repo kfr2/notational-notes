@@ -8,7 +8,7 @@
 3. `output_directory` should now contain HTML-based copies of your NV/similar notes.
 
 ## License
-Copyright (c) 2012 [Kevin Richardson](http://kevin.magically.us)
+Copyright (c) 2012 [Kevin Richardson](http://magically.us)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
