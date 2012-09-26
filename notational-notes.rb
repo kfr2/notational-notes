@@ -16,7 +16,7 @@ hide_private = true
 # The name to display in the output's header.
 user_name = "Kevin Richardson"
 # The URI of your website.
-web_uri = "http://kevin.magically.us"
+web_uri = "http://magically.us"
 
 if ARGV.count < 2
     puts "Usage: #{__FILE__} INPUT_DIR OUTPUT_DIR"
