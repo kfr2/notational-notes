@@ -5,7 +5,7 @@
 ## Setup & Usage
 1. Determine whether or not you would like to `hide_private` files and update the setting appropriately.
 2. Run `notational-notes.rb input_directory output_directory`
-3. Copy `notes/css` into `output_directory`.
+3. Copy `css` into `output_directory`.
 3. `output_directory` should now contain HTML-based copies of your NV/similar notes.
 
 ## License
