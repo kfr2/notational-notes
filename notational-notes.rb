@@ -17,35 +17,47 @@ hide_private = true
 user_name = "Kevin Richardson"
 # The URI of your website.
 web_uri = "http://magically.us"
+# The name for your notes.
+notes_name = 'Notes'
 
-if ARGV.count < 2
+if ARGV.count < 2 
     puts "Usage: #{__FILE__} INPUT_DIR OUTPUT_DIR"
     Kernel.exit
 end
 
-note_directory   = ARGV[0]
+note_directory = ARGV[0]
 output_directory = ARGV[1]
-
-
 hide_private = false if hide_private.nil?
 user_name = "Notational Note User" if user_name.nil?
 web_uri = "https://github.com/kfr2/notational-notes" if web_uri.nil?
+notes_name = 'Notes' if notes_name.nil?
 
-Dir.chdir(note_directory)
-notes_index = File.open(output_directory + "index.htm", "w")
-notes_index.puts "<html><head><title>notational notes!</title></head><body><h1><a href='#{web_uri}' title='homepage'>#{user_name}\'s</a> Public Notes!  Enjoy.</h1><hr><ul>"
+template = ''
+f = File.open('template.htm', 'r')
+f.each_line do |line|
+    template += line
+end
+template.gsub!('{{user_name}}', user_name)
+template.sub!('{{web_uri}}', web_uri)
+template.sub!('{{notes_name}}', notes_name)
+template.sub!('{{notes_name}}', notes_name)
+
+notes_list = []
+
 
 # Holds the latest update time for display in the index file.
-# Defaults to a very old year (0).
 newest_time = Time.new(0)
 
+Dir.chdir(note_directory)
 Dir["*.txt"].each do |file|
     # Ignore files marked as private (if set by user).
     if file =~ /\Aprivate/i
         next if hide_private
     end
 
-    # Convert the note's content to Markdown.
+    note_template = String.new(template)
+
+    # Convert the note's content to Markdown if necessary.
     content  = File.open(file, "r")
     modified = content.mtime 
     newest_time = modified if modified > newest_time
@@ -55,15 +67,27 @@ Dir["*.txt"].each do |file|
     # Truncate the ".txt" off the filename.
     file = file.slice(0..-5)
 
-    output = "<html><head><title>#{file}</title></head><body><a href='index.htm'>Notes Home</a><hr>#{markdown.to_html}<footer><hr><em>Last modified: #{modified.to_s}</em></footer></body></html>"
+    notes_list.push file
 
-    # Write the note to the output_directory.
-    File.new(output_directory + file + ".htm", "w").puts output
+    note_template.sub!('{{note_uri}}', "#{file}.htm")
+    note_template.sub!('{{note_name}}', file)
+    note_template.sub!('{{content}}', markdown.to_html)
+    note_template.sub!('{{last_modified}}', modified.to_s)
 
-    notes_index.puts "<li><a href='#{file}.htm' title='#{file}'>#{file}</a></li>"
+    File.new(output_directory + "#{file}.htm", "w").puts note_template
 end
 
-notes_index.puts "</ul><footer><hr><em>Last modified: #{newest_time.to_s}</em><p>Powered by <a href='https://github.com/kfr2/notational-notes' title='Notational Notes'>Notational Notes</a></p></footer></body></html>"
+template.sub!('{{note_name}}', notes_name)
+template.sub!('{{note_uri}}', 'index.htm')
+content = '<ul>'
+notes_list.each do |note|
+    content += "<li><a href='#{note}.htm' title='#{note}'>#{note}</a></li>"
+end
+content += '</ul>'
+template.sub!('{{content}}', content)
+
+notes_index = File.open(output_directory + "index.htm", "w")
+notes_index.puts template.sub('{{last_modified}}', newest_time.to_s)
 notes_index.close
 
 puts "Done converting notes to HTML."

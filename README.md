@@ -4,7 +4,8 @@
 
 ## Setup & Usage
 1. Determine whether or not you would like to `hide_private` files and update the setting appropriately.
-2. Run **notational-notes.rb input_directory output_directory**.
+2. Run `notational-notes.rb input_directory output_directory`
+3. Copy `notes/css` into `output_directory`.
 3. `output_directory` should now contain HTML-based copies of your NV/similar notes.
 
 ## License
@@ -24,3 +25,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+## Thanks
+* [Fred Oliveira](http://helloform.com/) for the theme from [Commonplace](https://github.com/fredoliveira/commonplace).

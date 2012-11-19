@@ -1,0 +1,156 @@
+@import "bootstrap/bootstrap.less";
+
+html {
+	background: #f6f6f6;
+}
+
+body {
+	font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	background: #f6f6f6;
+	color: #444;
+}
+
+.center {
+	text-align: center;
+}
+
+sup {
+	font-size: 11px;
+	color: #999;
+}
+
+code {
+	font-size: 1em;
+}
+
+footer {
+	background: #fff;
+	padding: 1em 0;
+	border-top: 1px solid #ddd;
+	font-size: 11px;
+	color: #aaa;
+	text-align: center;
+	
+	a {
+		color: #999;
+		text-decoration: underline;
+	}
+}
+
+#content {
+	margin: 4em auto;
+	max-width: 43em;
+}
+
+#page {
+	background: #fff;
+	color: #333;
+	border: 1px solid #ddd;
+	padding: 2em;
+	margin-bottom: 1em;
+	
+	.border-radius();
+	.box-shadow(0 1px 3px rgba(0, 0, 0, 0.125));
+	
+	h1.title {
+		margin: -1em -1em 1em -1em;
+		padding: 0.7em 1em;
+		background: #fffdef;
+		font-size: 1.8em;
+		border-bottom: 1px solid #eee;
+		.border-radius(6px 6px 0 0);
+		
+		a {
+			text-decoration: none;
+		}
+	}
+	
+	ul {
+		li {
+			line-height: 1.7em;
+		}
+	}
+	
+	code {
+		background: #eee;
+		font-family: Monaco, Andale Mono, Courier New, monospace;
+		font-size: 0.75em;
+	}
+	
+	a {
+		color: #00998f;
+		text-decoration: none;
+		
+		&.internal {
+			text-decoration: none;
+			padding: 2px 3px;
+			font-family: Monaco, Andale Mono, Courier New, monospace;
+			font-size: 0.75em;
+			.border-radius(3px);
+			border: 1px solid #b1edfc;
+			background: #ccf4fe;
+			color: #666;
+			
+			&.new {
+				background: #fecccc;
+				border: 1px solid #fcb1b1;
+			}
+		}
+	}
+	
+	h1, h2, h3, h4, h5, h6 {
+		margin-bottom: 15px;
+		color: #333;
+	}
+	
+	p {
+		font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+		font-size: 1em;
+		line-height: 1.7em;
+		margin-bottom: 1.5em;
+	}
+	
+	img {
+		max-width: 100%;
+	}
+	
+	form {
+		padding-left: 0 !important;
+		
+		label {
+			margin-bottom: 10px;
+		}
+		
+		textarea {
+			width: 98%;
+			height: 300px;
+			margin-bottom: 10px;
+		}
+	}
+	
+	blockquote {
+		color: #999;
+	}
+}
+
+.tools {
+	margin-bottom: 1em;
+	text-align: right;	
+}
+
+@media screen and (max-width:480px) {
+	#content {
+		margin: 0;
+
+		nav {
+			text-align: center;
+		}
+	}
+
+	#page {
+		border-radius: 0;
+		margin: 0 0 1em;
+		border: none;
+	}
+}

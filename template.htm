@@ -1,0 +1,24 @@
+<!doctype html>
+<head>
+    <title>{{user_name}} | {{notes_name}}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/screen.css">	
+</head>
+<body>
+	<section id="content">
+		<article id="page">
+        <h1 class="title"><a href="index.htm">Home</a> &raquo; <a href="{{note_uri}}">{{note_name}}</a></h1>
+            {{content}}
+
+            <hr>
+            <small>Last modified: {{last_modified}} by <a href="{{web_uri}}" title="{{user_name}}">{{user_name}}</a></small>
+		</article>
+	</section>
+		
+	<footer>
+		Powered by <a href="https://github.com/kfr2/notational-notes" title="Notational Notes">Notational Notes</a>, designed and developed by <a href="http://magically.us">Kevin Richardson</a>.  Design inspired by <a href="https://github.com/fredoliveira/commonplace" title="Commonplace">Commonplace</a>.
+	</footer>
+</body>
+</html>
