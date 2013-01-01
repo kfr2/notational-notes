@@ -3,7 +3,7 @@
 # https://github.com/kfr2/notational-notes
 #
 # Converts a directory of notes in text format (like those produced by Notational Velocity/nvAlt)
-# into a notes webpage in the style of (url).  Currently supports Markdown formatting syntax.
+# into a notes webpage in the style of http://bit.ly/YM0giJ.  Currently supports Markdown formatting syntax.
 # Other formatting syntaxes (Textile, etc) should not be particularly difficult to implement.
 #
 # Optional:  if hide_private is set to true, the script will ignore all files beginning with "private"
